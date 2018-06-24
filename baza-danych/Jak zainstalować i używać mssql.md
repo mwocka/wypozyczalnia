@@ -17,7 +17,6 @@ docker run \
 	-e  'ACCEPT_EULA=Y' \
 	-e 'SA_PASSWORD=Str0ngPassword!' \
 	-p 1433:1433 \
-	-v sql1data:/var/opt/mssql \
 	--name baza_danych \
 	-d microsoft/mssql-server-linux:2017-latest
 ```
