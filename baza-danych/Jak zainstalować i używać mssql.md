@@ -53,10 +53,6 @@ sudo docker exec -it baza_danych /opt/mssql-tools/bin/sqlcmd \
    -Q 'RESTORE DATABASE DB_projekt FROM DISK = "/var/opt/mssql/backup/DB_projekt.bak" WITH MOVE "DB_projekt" TO "/var/opt/mssql/data/DB_projekt.mdf", MOVE "DB_projekt_log" TO "/var/opt/mssql/data/DB_projekt_log.ldf"'
 ```
 
-Poniższy zrzut ekranu przedstawia pomyślne odzyskanie danych.
-
-![](/home/mawocka/Dokumenty/mssql/Zrzut ekranu z 2018-06-24 13-32-54.png)
-
 ##### 2.4. Weryfikacja danych z bazy
 
 ```bash
