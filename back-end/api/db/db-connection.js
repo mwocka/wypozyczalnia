@@ -4,8 +4,8 @@
 const sql = require('mssql');
 
 const config = {
-    user: 'su',
-    password: 'Str0ngPassword!',
+    user: 'api2',
+    password: 'Passw0rd!',
     server: 'localhost',
     database: 'DB_projekt',
     options: {
