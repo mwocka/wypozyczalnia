@@ -1,5 +1,5 @@
-/*@import "../../shared/variables";
-@import "../../shared/mixins";*/
+@import "../../shared/variables";
+@import "../../shared/mixins";
 
 .right-top-button {
   position: fixed;
@@ -8,10 +8,9 @@
   z-index: 999;
 }
 
-
 /* SECTION ABOUT*/
 .section-about {
- margin: $big_margin 0;
+  margin: $big_margin 0;
 }
 
 /*SECTION LOGIN*/
@@ -20,34 +19,30 @@
 
 /*SECTION FOOTER*/
 .section-footer {
- width: 100%;
- color: $primary_text_white;
- font-size: $normal_font_size;
-.footer-content {
-> div {
-  margin: 0.5*$normal_margin 0;
-@media #{$gt-sm_size} {
-  margin: $normal_margin 0;
-}
-}
-display: flex;
-align-items: center;
-}
-}
-
-#github {
-  cursor: pointer;
-  margin-left: 10px;
+  width: 100%;
+  color: $primary_text_white;
+  font-size: $normal_font_size;
+  text-align: center;
+  .footer-content {
+    > div {
+      margin: 0.5*$normal_margin 0;
+      @media #{$gt-sm_size} {
+        margin: $normal_margin 0;
+      }
+    }
+    display: flex;
+    align-items: center;
+  }
 }
 
 .bg-border-radius {
   width: 100%;
   overflow: hidden;
   border-radius: 35% 35% 0 0;
-@media #{$gt-sm_size} {
-  border-radius: 55% 55% 0 0;
-}
-background-color: $color_primary;
+  @media #{$gt-sm_size} {
+    border-radius: 55% 55% 0 0;
+  }
+  background-color: $color_primary;
 }
 
 /*LOGIN MENU*/
@@ -55,12 +50,12 @@ background-color: $color_primary;
 @mixin side-menu {
   position: fixed;
   transition: 0.2s transform ease-in-out;
-@include box_shadow;
+  @include box_shadow;
   z-index: 999;
 }
 
 .side-menu_mobile {
-@include side-menu;
+  @include side-menu;
   height: 100%;
   width: 100%;
   top: 0;
@@ -69,7 +64,7 @@ background-color: $color_primary;
 }
 
 .side-menu_large {
-@include side-menu;
+  @include side-menu;
   height: auto;
   width: 300px;
   top: 20px;
@@ -85,7 +80,7 @@ background-color: $color_primary;
   justify-content: space-between;
   align-items: center;
   background-color: $bg_primary_color;
-@include box_shadow;
+  @include box_shadow;
   padding: .5*$normal_margin .5*$normal_margin .5*$normal_margin $normal_margin;
   font-size: 18px;
   font-weight: 700;
