@@ -1,0 +1,64 @@
+@import "../../../shared/variables";
+@import "../../../shared/mixins";
+
+.section-login {
+  padding: 2.5*$normal_margin 12px;
+  display: flex;
+  justify-content: center;
+
+  mat-card {
+    padding: 2*$normal_margin;
+    padding-bottom: $normal_margin;
+    border-bottom: 5px solid $color-primary;
+    max-width: 500px;
+  }
+
+  button {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+
+.my-card-header {
+  color: $dark_primary;
+  text-align: center;
+  padding-top: 2*$normal_margin;
+  h2 {
+    margin-top: 0;
+  }
+  p {
+    color: $secondary_text;
+  }
+}
+
+.form-login {
+  mat-form-field, button {
+    width: 100%;
+    margin-top: $normal_margin;
+  }
+}
+
+.header-icon {
+  padding: .5*$normal_margin;
+  background-color: $accent_color;
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  @include box_shadow;
+  border: 3px solid $hover_color;
+}
+
+#email-icon {
+  color: $color_primary;
+  width: 72px;
+  height: 72px;
+  font-size: 72px
+}
+
+.forgot-pass {
+  margin-top: .5*$normal_margin;
+  text-align: right;
+  font-size: $small_font_size;
+}

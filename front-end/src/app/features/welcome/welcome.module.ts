@@ -5,11 +5,13 @@ import {ScrollToModule} from 'ng2-scroll-to';
 import {SharedModule} from '../../shared/shared.module';
 import {LoginComponent} from './login/login.component';
 import {MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatFormFieldModule, MatCardModule} from '@angular/material';
+import { RegistrationComponent } from './registration/registration.component';
+import {RegistrationModule} from './registration/registration.module';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    WelcomeComponent
+    WelcomeComponent,
 
   ],
   imports: [
@@ -24,11 +26,7 @@ import {MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatForm
 
     MatFormFieldModule,
 
-  ],
-  exports: [
-    WelcomeComponent
   ]
-
 })
 export class WelcomeModule {
 }

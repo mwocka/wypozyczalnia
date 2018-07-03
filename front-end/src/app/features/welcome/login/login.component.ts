@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {fadeInAnimation} from '../../../shared/animations';
+import {UserService} from '../../../core/services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -17,13 +18,21 @@ export class LoginComponent implements OnInit {
   hide = true;
   error: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userService: UserService) {
   }
 
   login() {
     if (this.username.valid && this.password.valid) {
-      console.log('Zalogowano');
+      this.userService.login(this.username.value, this.password.value).subscribe(
+        res => {
+          this.router.navigate(['/home']);
+        },
+        error => {
+          this.error = 'Username or password is incorrect';
+        }
+      );
     }
+
   }
 
   ngOnInit() {
