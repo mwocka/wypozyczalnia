@@ -9,6 +9,7 @@ import 'rxjs/add/observable/throw';
 
 const API_LOGIN_URI = 'post/login';
 const API_REG_URI = 'post/register';
+
 @Injectable()
 export class UserService {
 
@@ -23,7 +24,7 @@ export class UserService {
             localStorage.setItem('currentUser', JSON.stringify(res));
           }
         }),
-        /*catchError((error: HttpErrorResponse) => this.handleError(error))*/
+        catchError((error: HttpErrorResponse) => this.handleError(error))
       );
   }
 
