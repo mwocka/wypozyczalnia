@@ -1,0 +1,19 @@
+@import "../../shared/mixins";
+@import "../../shared/variables";
+
+.space {
+  font-size: 20px;
+  padding-bottom: 2em;
+}
+
+.category {
+  text-align: center;
+  justify-content: center;
+  padding-top: 5%;
+  color: rgba(0, 0, 0, 1);
+  min-width: 120%;
+}
+
+body, html {
+  height: 100%;
+}

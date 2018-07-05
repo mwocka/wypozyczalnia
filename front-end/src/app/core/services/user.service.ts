@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/catch';
 import {catchError, map} from 'rxjs/operators';
-import {UserModel} from '../../models/user';
+import {UserModel} from '../models/user';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
@@ -18,7 +18,7 @@ export class UserService {
 
   public login(username: string, password: string) {
     return this.http.post(API_LOGIN_URI,
-      {username: username, password: password, employee: 'true'}, {responseType: 'text'})
+      {username: username, password: password, employee: 'false'}, {responseType: 'text'})
       .pipe(map(res => {
           if (res) {
             localStorage.setItem('currentUser', JSON.stringify(res));
@@ -28,13 +28,15 @@ export class UserService {
       );
   }
 
-  public register(name: string, address: string, password: string, username: string) {
+  public register(name: string, address: string, password: string, username: string, email: string, phone: string) {
     return this.http.post<any>(API_REG_URI, {
       name: name,
       address: address,
+      phone: phone,
+      email: email,
       password: password,
       username: username,
-      employee: 'true'
+      employee: 'false'
     })
       .pipe(map(res => {
           if (res && res.status === 200) {

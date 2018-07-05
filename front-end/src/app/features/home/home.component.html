@@ -1,3 +1,10 @@
-<p>
-  home works!
-</p>
+<h2 style="font-size: 55px; color: black;  padding-bottom: 1em;">Kategoria:</h2>
+<div class="category">
+  <!--<div *ngFor="let category of category" class="space">
+    <button mat-raised-button color="primary" style="min-width: 9%; font-size: 25px;">{{category.name}}</button>
+  </div>-->
+  <mat-nav-list>
+    <a mat-list-item *ngFor="let category of category" [matTooltip]="category.description"> {{ category.name }}</a>
+  </mat-nav-list>
+
+</div>

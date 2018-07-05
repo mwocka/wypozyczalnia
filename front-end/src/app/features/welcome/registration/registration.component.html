@@ -17,7 +17,7 @@
       </mat-form-field>
       <mat-form-field>
         <input matInput
-               placeholder="Name"
+               placeholder="Imię i nazwisko"
                [formControl]="name"
                required>
         <mat-error *ngIf="name.hasError('required')">
@@ -26,10 +26,29 @@
       </mat-form-field>
       <mat-form-field>
         <input matInput
-               placeholder="Address"
+               placeholder="Adres"
                [formControl]="address"
                required>
         <mat-error *ngIf="address.hasError('required')">
+          To pole jest wymagane
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput
+               placeholder="Email"
+               [formControl]="email"
+               required>
+        <mat-error *ngIf="email.hasError('required')">
+          To pole jest wymagane
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput
+               placeholder="Telefon"
+               [formControl]="phone"
+               required>
+        <mat-error *ngIf="phone.hasError('required')">
           To pole jest wymagane
         </mat-error>
       </mat-form-field>
@@ -47,12 +66,9 @@
       </mat-form-field>
 
       <button mat-raised-button type="submit" (ngSubmit)="register()">
-        <span>Zaloguj</span>
+        <span>Zarejestruj się!</span>
       </button>
     </form>
-    <div class="forgot-pass">
-      <a>Nie pamiętasz hasła?</a>
-    </div>
     <div class="forgot-pass">
       <a [routerLink]="['/welcome']">Powrót</a>
     </div>

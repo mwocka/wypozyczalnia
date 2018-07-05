@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {fadeInAnimation} from '../../../shared/animations';
-import {UserService} from '../../../core/services/user/user.service';
+import {UserService} from '../../../core/services/user.service';
 
 @Component({
   selector: 'app-login',
