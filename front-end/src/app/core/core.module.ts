@@ -9,6 +9,7 @@ import {MyInterceptor} from './my.interceptor';
 import {AuthGuard} from './auth.guard';
 import {LoaderService} from './services/loader.service';
 import {CategoryService} from './services/category.service';
+import {ModelService} from './services/model.service';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import {CategoryService} from './services/category.service';
     { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },
     AuthGuard,
     LoaderService,
-    CategoryService
+    CategoryService,
+    ModelService
   ],
   declarations: []
 })

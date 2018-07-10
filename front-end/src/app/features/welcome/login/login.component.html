@@ -10,6 +10,7 @@
       <mat-form-field>
         <input matInput
                placeholder="Login"
+               value="pladmin"
                [formControl]="username"
                required>
         <mat-error *ngIf="username.hasError('required')">
@@ -20,6 +21,7 @@
       <mat-form-field>
         <input matInput
                placeholder="Hasło"
+               value="mwocka"
                [type]="hide ? 'password' : 'text'"
                [formControl]="password"
                required>

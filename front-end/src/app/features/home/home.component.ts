@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CategoryService} from '../../core/services/category.service';
 import {fadeInAnimation} from '../../shared/animations';
 import {CategoryModel} from '../../core/models/category';
@@ -14,9 +14,15 @@ import {Subscription} from 'rxjs';
 export class HomeComponent implements OnInit {
 
   private categorySub$: Subscription;
+  private routeSub$: Subscription;
+
+  public categoryId: string;
   public category: Array<CategoryModel>;
 
-  constructor(private router: Router, private categoryService: CategoryService) {
+  constructor(private route: ActivatedRoute, private categoryService: CategoryService, private router: Router) {
+    this.routeSub$ = this.route.params.subscribe(params => {
+      this.categoryId = params['categoryId'];
+    });
   }
 
   ngOnInit() {
@@ -34,5 +40,4 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-
 }

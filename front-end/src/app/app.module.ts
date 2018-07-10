@@ -3,18 +3,18 @@ import {NgModule} from '@angular/core';
 import {CoreModule} from './core/core.module';
 import {AppComponent} from './app.component';
 import {appRouting} from './app.routing';
-import { CategoryComponent } from './features/category/category.component';
+import {MatProgressBarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CategoryComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     appRouting,
 
-    CoreModule
+    CoreModule,
+    MatProgressBarModule
   ],
   bootstrap: [AppComponent]
 })

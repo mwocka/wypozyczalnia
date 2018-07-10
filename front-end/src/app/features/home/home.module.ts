@@ -9,11 +9,15 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatTooltipModule
+  MatListModule, MatTabsModule, MatTooltipModule
 } from '@angular/material';
+import {ModelComponent} from './model/model.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [
+    ModelComponent,
+    HomeComponent
+  ],
   imports: [
     SharedModule,
     homeRouting,
@@ -25,8 +29,11 @@ import {
     MatCardModule,
     MatFormFieldModule,
     MatListModule,
-    MatTooltipModule
-  ]
+    MatTooltipModule,
+    MatTabsModule
+  ],
+  exports: [],
+  providers: []
 
 })
 export class HomeModule {
