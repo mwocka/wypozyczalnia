@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
     this.categorySub$ = this.categoryService.getCategory().subscribe(
       res => {
         this.category = res;
-        console.log(res);
       },
       error => {
         console.log('Error');

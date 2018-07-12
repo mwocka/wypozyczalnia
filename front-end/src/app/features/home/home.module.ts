@@ -6,7 +6,7 @@ import {
   MatButtonModule,
   MatCardModule,
   MatDialogModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatListModule, MatTabsModule, MatTooltipModule
@@ -30,7 +30,8 @@ import {ModelComponent} from './model/model.component';
     MatFormFieldModule,
     MatListModule,
     MatTooltipModule,
-    MatTabsModule
+    MatTabsModule,
+    MatGridListModule
   ],
   exports: [],
   providers: []

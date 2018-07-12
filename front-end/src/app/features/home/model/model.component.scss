@@ -6,14 +6,6 @@
   padding-bottom: 2em;
 }
 
-.category {
-  text-align: center;
-  justify-content: center;
-  padding-top: 5%;
-  color: rgba(0, 0, 0, 1);
-  min-width: 120%;
-}
-
 body, html {
   height: 100%;
 }
@@ -24,4 +16,30 @@ body, html {
 
 .fill {
   flex: 1;
+}
+
+.name {
+  margin-top: 10px;
+  text-align: center;
+  justify-content: center;
+  font-size: $big_font_size;
+  font-weight: 700;
+
+}
+
+.description {
+  text-align: justify;
+}
+
+.price {
+  margin-top: 10px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.name_item {
+
+  text-align: center;
+  justify-content: center;
+  font-weight: 300;
 }

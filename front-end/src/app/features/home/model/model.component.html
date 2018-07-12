@@ -1,23 +1,33 @@
 <mat-card>
-
-  <mat-tab-group (selectedTabChange)="getImageFromService('6')">
+  <mat-tab-group (selectedIndexChange)="shh($event)">
     <div *ngFor="let model of modelArray">
       <mat-tab label="{{model.name}}">
-        <mat-list>
-          <mat-list-item>
-            <span [innerHTML]="model.name"></span>
-          </mat-list-item>
-          <mat-list-item>
-            <span [innerHTML]="model.description"></span>
-          </mat-list-item>
-          <mat-list-item>
-            <span [innerHTML]="model.price_per_hour"></span>
-          </mat-list-item>
-        </mat-list>
+        <div class="row">
+          <div class="col-6">
+            <p class="name" [innerHTML]="model.name"></p>
+            <p class="description" [innerHTML]="model.description"></p>
+            <p class="price" style="margin-bottom: 30px">Only {{model.price_per_hour}} dolars per day!</p>
 
-        <img [src]="imageToShow"
-             alt="Place image title"
-             *ngIf="!isImageLoading">
+            <mat-grid-list cols="2" rowHeight="2:1">
+
+              <div *ngFor="let item of itemArray">
+                <mat-grid-tile>
+                  <div class="name_item">
+                    <p>Condition: {{item.condition}}</p>
+                    <p>Status: {{item.itemstatus}}</p>
+                    <button mat-raised-button>Book it!</button>
+                  </div>
+                </mat-grid-tile>
+              </div>
+            </mat-grid-list>
+            <!--{{dateNow | date:'yyyy-MM-dd HH:mm:ss'}}-->
+          </div>
+          <div class="col-6">
+            <img [src]="imageToShow"
+                 alt=""
+                 *ngIf="!isImageLoading">
+          </div>
+        </div>
       </mat-tab>
     </div>
   </mat-tab-group>

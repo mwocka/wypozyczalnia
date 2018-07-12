@@ -28,7 +28,6 @@ export class MyInterceptor implements HttpInterceptor {
       if (event instanceof HttpResponse) {
         // do stuff with response if you want
         this.loader.complete();
-        console.log('OK');
       }
     }, (err: any) => {
       if (err instanceof HttpErrorResponse) {

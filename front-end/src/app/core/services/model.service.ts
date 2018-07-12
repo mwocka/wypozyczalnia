@@ -7,6 +7,7 @@ import {UserModel} from '../models/user';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import {ModelModel} from '../models/model';
+import {ItemModel} from '../models/item';
 
 @Injectable()
 export class ModelService {
@@ -28,5 +29,14 @@ export class ModelService {
 
   public getPicture(modelId: string): Observable<Blob> {
     return this.http.get(`get/imgOfModel/${modelId}/`, {responseType: 'blob'});
+  }
+
+  public getItems(modelId: string): Observable<Array<ItemModel>> {
+    return this.http.get<Array<ItemModel>>(`get/itemsByModel/${modelId}/`);
+  }
+
+  public makeReservation(customerId: string, itemId: string, date: string) {
+    const body = JSON.stringify({customer_id: customerId, item_id: itemId, date: date});
+    return this.http.post('post/makeTransaction', body);
   }
 }
