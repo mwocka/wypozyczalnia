@@ -23,14 +23,16 @@ export class MyInterceptor implements HttpInterceptor {
     req = req.clone({
       url: BASE_URL + req.url
     });
-    // const token = JSON.stringify(sessionStorage.getItem('currentUser'));
-    const token = JSON.parse(localStorage.getItem('currentUser'));
-console.log(token);
-    if (token) {
+    const token = JSON.stringify(localStorage.getItem('currentUser'));
+
+
+    const trimtoken = token.replace(/['"\\]+/g, '');
+
+    if (trimtoken ) {
       req = req.clone({
         setHeaders: {
           'Content-Type': 'application/json',
-          'x-auth': `${token}`
+          'x-auth': `${trimtoken}`
         }
       });
     }
