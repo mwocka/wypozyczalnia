@@ -82,7 +82,6 @@ export class ModelComponent implements OnInit {
     this.itemsSub$ = this.modelService.getItems(_modelId).subscribe(
       res => {
         this.itemArray = res;
-        console.log(res);
       },
       error => {
         console.log('Error');
@@ -94,7 +93,6 @@ export class ModelComponent implements OnInit {
     this.getDate();
     this.reservedSub$ = this.modelService.makeReservation(_itemId, this.today).subscribe(
       res => {
-        console.log(res);
       }, error => {
         console.log(error);
       }

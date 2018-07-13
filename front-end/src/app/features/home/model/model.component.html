@@ -8,14 +8,14 @@
             <p class="description" [innerHTML]="model.description"></p>
             <p class="price" style="margin-bottom: 30px">Only {{model.price_per_hour}} dolars per day!</p>
 
-            <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-list cols="2" rowHeight="2:2">
 
               <div *ngFor="let item of itemArray">
                 <mat-grid-tile>
                   <div class="name_item">
                     <p>Condition: {{item.condition}}</p>
                     <p>Status: {{item.itemstatus}}</p>
-                    <button mat-raised-button (click)="reservedItems(item.item_id)">Book it!</button>
+                    <button mat-raised-button [disabled]="item.itemstatus === 'Reserved'" (click)="reservedItems(item.item_id)">Book it!</button>
                   </div>
                 </mat-grid-tile>
               </div>

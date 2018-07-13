@@ -25,7 +25,7 @@ export class MyInterceptor implements HttpInterceptor {
     });
     // const token = JSON.stringify(sessionStorage.getItem('currentUser'));
     const token = JSON.parse(localStorage.getItem('currentUser'));
-
+console.log(token);
     if (token) {
       req = req.clone({
         setHeaders: {
