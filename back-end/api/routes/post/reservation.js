@@ -16,7 +16,7 @@ module.exports = (function() {
         let auth = jwt.decode(token, secretKey);
         //Employee cannot make a reservation
         if(auth.employee != 'true') {
-            verifyUser(auth.username, user => {
+             verifyUser(auth.username, user => {
                 if (user != null) {
                     let request = new sql.Request();//end save in database
                     request.query(`INSERT INTO Reservation (customer_id, item_id, date) VALUES (${user.customer_id}, ${itemId}, '${date}')`).then(recordset => { //DATE MUST BE FORMATED AS 'YYYY-mm-dd HH:ii:ss'
@@ -28,7 +28,7 @@ module.exports = (function() {
                 } else {
                     res.status(401).send();
                 }
-            });
+             });
         }else{
             res.status(401).send();//if employee tries to make a reservation
         }

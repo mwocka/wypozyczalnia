@@ -6,7 +6,7 @@ const sql = require('mssql');
 const config = {
     user: 'api2',
     password: 'Passw0rd!',
-    server: 'localhost',
+    server: '192.168.56.101',
     database: 'DB_projekt',
     options: {
         encrypt: false//if Windows Azure
