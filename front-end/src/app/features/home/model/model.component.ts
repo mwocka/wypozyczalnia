@@ -24,11 +24,8 @@ export class ModelComponent implements OnInit {
 
   imageToShow: any;
   isImageLoading = false;
-
-  dateNow: Date = new Date();
-  dateNowISO = this.dateNow.toISOString();
-  dateNowMilliseconds = this.dateNow.getTime();
-
+  today: any;
+  dateCurr: string;
 
   constructor(private route: ActivatedRoute, private modelService: ModelService) {
     this.routeSub$ = this.route.params.subscribe(params => {
@@ -93,13 +90,22 @@ export class ModelComponent implements OnInit {
     );
   }
 
-  reservedItems(_customerId: string, _itemId: string, _date: string) {
-    this.reservedSub$ = this.modelService.makeReservation(_customerId, _itemId, _date).subscribe(
+  reservedItems(_itemId: string) {
+    this.getDate();
+    this.reservedSub$ = this.modelService.makeReservation(_itemId, this.today).subscribe(
       res => {
         console.log(res);
       }, error => {
         console.log(error);
       }
     );
+  }
+
+  getDate() {
+    this.today = new Date();
+    const datePipe = new DatePipe('en-US');
+    this.dateCurr = datePipe.transform(this.today, 'yyyy-MM-dd HH:mm:ss');
+    this.today = this.dateCurr;
+    console.log(this.today);
   }
 }

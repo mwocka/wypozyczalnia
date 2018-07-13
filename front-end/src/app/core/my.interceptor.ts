@@ -23,6 +23,17 @@ export class MyInterceptor implements HttpInterceptor {
     req = req.clone({
       url: BASE_URL + req.url
     });
+    // const token = JSON.stringify(sessionStorage.getItem('currentUser'));
+    const token = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (token) {
+      req = req.clone({
+        setHeaders: {
+          'Content-Type': 'application/json',
+          'x-auth': `${token}`
+        }
+      });
+    }
 
     return next.handle(req).do((event: HttpEvent<any>) => {
       if (event instanceof HttpResponse) {

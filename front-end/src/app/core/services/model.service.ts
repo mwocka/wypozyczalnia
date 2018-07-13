@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/catch';
 import {catchError, map} from 'rxjs/operators';
@@ -35,8 +35,8 @@ export class ModelService {
     return this.http.get<Array<ItemModel>>(`get/itemsByModel/${modelId}/`);
   }
 
-  public makeReservation(customerId: string, itemId: string, date: string) {
-    const body = JSON.stringify({customer_id: customerId, item_id: itemId, date: date});
-    return this.http.post('post/makeTransaction', body);
+  public makeReservation(itemId: string, date: any) {
+    const body = JSON.stringify({item_id: itemId, date: date});
+    return this.http.post('post/reservation', body);
   }
 }

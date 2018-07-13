@@ -21,7 +21,7 @@ export class UserService {
       {username: username, password: password, employee: 'false'}, {responseType: 'text'})
       .pipe(map(res => {
           if (res) {
-            localStorage.setItem('currentUser', JSON.stringify(res));
+            sessionStorage.setItem('currentUser', res);
           }
         }),
         catchError((error: HttpErrorResponse) => this.handleError(error))
@@ -40,7 +40,7 @@ export class UserService {
     })
       .pipe(map(res => {
           if (res && res.status === 200) {
-            localStorage.setItem('currentUser', JSON.stringify(res));
+            sessionStorage.setItem('currentUser', JSON.stringify(res));
           }
         }),
         catchError((error: HttpErrorResponse) => this.handleError(error))
