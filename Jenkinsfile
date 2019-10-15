@@ -5,16 +5,14 @@ pipeline {
         }
     }
     environment {
-        mavenHome=tool "Maven3"
         scannerHome = tool 'SonarQube'
-        NODEJS_HOME = "${tool 'NodeJS LTS'}"
-        PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+        MAVEN_HOME = "${tool 'Maven3'}"
+        PATH="${env.MAVEN_HOME}/bin:${env.PATH}"
     }
     stages {
         stage('Build using Maven') { 
             steps {
-                sh "${mavenHome}/bin/mvn --version"
-                sh "${mavenHome}/bin/mvn install"
+                sh "cd maven-basic && mvn install"
             }
         }
         stage('SonarQube analysis') { 
