@@ -6,7 +6,7 @@ pipeline {
 	}
 	environment {
 		mavenHome=tool "Maven3"
-		scannerHome = tool 'Sonarqube'
+		scannerHome = tool 'SonarQube'
 		NODEJS_HOME = "${tool 'NodeJS LTS'}"
 		PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
     stages {
@@ -19,7 +19,7 @@ pipeline {
         }
         stage('SonarQube analysis') { 
             steps {
-				withSonarQubeEnv('Sonarqube') {
+				withSonarQubeEnv('SonarQube_TESTS') {
 				sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=sleroy:sample-project -Dsonar.projectName=SampleProject -Dsonar.projectVersion=1.0 -Dsonar.sources=front-end -Dsonar.sourceEncoding=UTF-8"
 				} 
             }
