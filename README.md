@@ -1,9 +1,14 @@
-# Wypożyczalnia Sprzętu - Aplikacja Webowa
-Projekt składa się z trzech modułów:
+# Basic Maven Example
 
-* Bazy danych
-* API - napisanej w nodeJS
-* Front-End, który został napisany w Angular
+This simple Maven project is importing JaCoCo's coverage report. For multi-module project example 
+see [multi-module Maven project](../maven-multimodule/README.md)
+        
+## Usage
 
-Każdy moduł posiada własną dokumentacje umieszczoną bezpośrednio w swoim folderze.
+* Build the project, execute all the tests and analyze the project with SonarQube Scanner for Maven:
 
+        mvn clean verify sonar:sonar
+        
+## Documentation
+
+[SonarScanner for Maven](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-maven/)
