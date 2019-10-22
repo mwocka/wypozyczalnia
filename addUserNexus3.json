@@ -1,5 +1,5 @@
 {
-  "name" : "addNexusUser",
+  "name" : "addNexusUser2",
   "content" : "security.addUser('nexus_user', 'Automatic', 'User', 'automatic.user@noreply.com', true, 'nexusadmin', ['nx-admin'])",
   "type" : "groovy"
 }
