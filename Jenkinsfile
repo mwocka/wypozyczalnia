@@ -7,6 +7,12 @@ pipeline {
     environment {
         MAVEN_HOME = "${tool 'Maven3'}"
         PATH="${env.MAVEN_HOME}/bin:${env.PATH}"
+        nexusConfiguration = """\\
+    <server>\\
+        <id>nexus</id> \\
+        <username>nexus_user</username>\\
+        <password>nexusadmin</password>\\
+    </server>"""
     }
     stages {
         stage('Unit Tests') { 
@@ -21,11 +27,22 @@ pipeline {
                 } 
             }
         }
+        stage('Deploy artifactory') {
+            steps {
+                sh """ grep "<id>nexus</id>" ${MAVEN_HOME}/conf/settings.xml \\
+                    && grep "<username>nexus_user</username>" ${MAVEN_HOME}/conf/settings.xml \\
+                    && grep "<password>nexusadmin</password>" \\
+                    ${MAVEN_HOME}/conf/settings.xml &&
+                    echo "Nexus configuration has been already set" ||
+                    sed -i '/<\\/servers>/i ${nexusConfiguration}' ${MAVEN_HOME}/conf/settings.xml"""
+                sh "mvn clean install -Dmaven.test.skip=true"
+                sh "mvn deploy -Dmaven.test.skip=true"
+            }
+        }
     }
     post {
         always {
             cleanWs()
         }
     }
-
 }
