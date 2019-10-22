@@ -1,5 +1,5 @@
 {
-  "name" : "addNexusUser",
-  "content" : "import org.sonatype.nexus.security.user.UserNotFoundException\n\n// create the new user\nsecurity.addUser(\"nexus_user\", \"Automatic\", \"User\", \"automatic.user@noreply.com\", true, \"nexusadmin\", \"nx-admin\")\n\n",
+  "name" : "test",
+  "content" : "import org.sonatype.nexus.security.user.UserNotFoundException\n\n// create the new user\nsecurity.addUser(\"nexus_user\", \"Automatic\", \"User\", \"automatic.user@noreply.com\", true, \"nexusadmin\", [\"nx-admin\"])\n\n",
   "type" : "groovy"
 }
