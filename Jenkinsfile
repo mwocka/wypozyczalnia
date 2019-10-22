@@ -10,8 +10,8 @@ pipeline {
         nexusConfiguration = """\\
     <server>\\
         <id>nexus</id> \\
-        <username>nexus_user</username>\\
-        <password>nexusadmin</password>\\
+        <username>technical</username>\\
+        <password>sOWkEAutHzbCB84O</password>\\
     </server>"""
     }
     stages {
@@ -30,8 +30,8 @@ pipeline {
         stage('Deploy artifactory') {
             steps {
                 sh """ grep "<id>nexus</id>" ${MAVEN_HOME}/conf/settings.xml \\
-                    && grep "<username>nexus_user</username>" ${MAVEN_HOME}/conf/settings.xml \\
-                    && grep "<password>nexusadmin</password>" \\
+                    && grep "<username>technical</username>" ${MAVEN_HOME}/conf/settings.xml \\
+                    && grep "<password>sOWkEAutHzbCB84O</password>" \\
                     ${MAVEN_HOME}/conf/settings.xml &&
                     echo "Nexus configuration has been already set" ||
                     sed -i '/<\\/servers>/i ${nexusConfiguration}' ${MAVEN_HOME}/conf/settings.xml"""
