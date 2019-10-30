@@ -80,10 +80,4 @@
       </build>
     </profile>
   </profiles>
-  <distributionManagement>
-         <repository>
-         <id>nexus</id>
-         <url>http://nexus3-core:8081/nexus3/repository/maven-snapshots</url>
-         </repository>
-  </distributionManagement>
 </project>
