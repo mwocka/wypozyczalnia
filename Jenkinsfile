@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Deploy artifacts to Nexus3') {
             steps {
-                configFileProvider([configFile('MavenGlobalSettings')]) {
+                withMaven(maven: 'Maven3', mavenSettingsConfig: 'MavenGlobalSettings') {
                     sh "mvn deploy -Dmaven.test.skip=true"
                 }
             }
