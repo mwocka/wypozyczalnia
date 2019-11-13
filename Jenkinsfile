@@ -22,8 +22,10 @@ pipeline {
             }
         }
         stage('Deploy artifacts to Nexus3') {
-            configFileProvider([configFile('MavenGlobalSettings')]) {
-                sh "mvn deploy -Dmaven.test.skip=true"
+            steps {
+                configFileProvider([configFile('MavenGlobalSettings')]) {
+                    sh "mvn deploy -Dmaven.test.skip=true"
+                }
             }
         }  
     }
