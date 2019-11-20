@@ -24,7 +24,9 @@ pipeline {
         stage('Deploy artifacts to Nexus3') {
             steps {
                 configFileProvider([configFile(fileId: 'DefaultPLMavenSettings', variable: 'MAVEN_SETTINGS')]) {
-                    sh 'mvn -s $MAVEN_SETTINGS deploy -Dmaven.test.skip=true'
+                    withMaven(maven: 'Maven3') {
+                        sh 'mvn -s $MAVEN_SETTINGS deploy -Dmaven.test.skip=true'
+                    }
                 }
             }
         }  
